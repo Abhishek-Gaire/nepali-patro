@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * nepali-patro — Static Month-Length Data
+ * barshik-nepali-patro — Static Month-Length Data
  * ============================================================================
  * Bikram Sambat month lengths are irregular and cannot be derived by formula.
  * They are determined astronomically and published by the Nepal Calendar

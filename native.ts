@@ -1,10 +1,10 @@
 /**
  * ============================================================================
- * nepali-patro — React Native Entry Point
+ * barshik-nepali-patro — React Native Entry Point
  * ============================================================================
  * Subpath export for React Native consumers.
  *
- *   import { NepaliCalendar } from "nepali-patro/native";
+ *   import { NepaliCalendar } from "barshik-nepali-patro/native";
  *
  * This entry bundles the native UI primitives (View, Text, TouchableOpacity)
  * and MUST NOT be imported into standard web projects (it will crash

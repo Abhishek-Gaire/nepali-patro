@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * nepali-patro — Calendar Grid Generator
+ * barshik-nepali-patro — Calendar Grid Generator
  * ============================================================================
  * Builds a 2-D array (weeks × days) of CalendarDay objects for a given
  * BS year/month. Handles:

@@ -51,7 +51,7 @@ export const HolidayModal: React.FC<HolidayModalProps> = ({ day, onClose, theme 
       <div
         role="dialog"
         aria-modal="true"
-        aria-labelledby="nepali-patro-holiday-title"
+        aria-labelledby="barshik-nepali-patro-holiday-title"
         style={{
           width: "100%",
           maxWidth: 420,
@@ -78,7 +78,7 @@ export const HolidayModal: React.FC<HolidayModalProps> = ({ day, onClose, theme 
               Holiday details
             </div>
             <h2
-              id="nepali-patro-holiday-title"
+              id="barshik-nepali-patro-holiday-title"
               style={{ margin: 0, fontSize: 18, lineHeight: 1.3, color: "#111827" }}
             >
               {day.holidayName ?? "Holiday"}

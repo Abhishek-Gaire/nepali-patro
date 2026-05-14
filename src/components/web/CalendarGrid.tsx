@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * nepali-patro — Web CalendarGrid Component
+ * barshik-nepali-patro — Web CalendarGrid Component
  * ============================================================================
  * Renders the full 7-column calendar table for web.
  * Composed of Header + weekday labels + DayCell rows.
@@ -27,7 +27,7 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({
 
   return (
     <div
-      className="nepali-patro-calendar"
+      className="barshik-nepali-patro-calendar"
       style={{
         fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif",
         maxWidth: 420,

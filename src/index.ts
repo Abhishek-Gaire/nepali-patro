@@ -1,10 +1,10 @@
 /**
  * ============================================================================
- * nepali-patro — Web Entry Point
+ * barshik-nepali-patro — Web Entry Point
  * ============================================================================
  * Main package export for web/React consumers.
  *
- *   import { NepaliCalendar, convertADtoBS, NepaliDate } from "nepali-patro";
+ *   import { NepaliCalendar, convertADtoBS, NepaliDate } from "barshik-nepali-patro";
  *
  * Everything exported here is safe to use in standard React DOM projects.
  * No React Native code is included in this bundle.

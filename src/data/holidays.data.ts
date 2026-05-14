@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * nepali-patro — Static Public Holiday Data
+ * barshik-nepali-patro — Static Public Holiday Data
  * ============================================================================
  * Public holidays in Nepal vary each year because many festivals (Dashain,
  * Tihar, Eid, etc.) follow lunar tithis. This file

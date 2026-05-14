@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * nepali-patro — Web DayCell Component
+ * barshik-nepali-patro — Web DayCell Component
  * ============================================================================
  * Renders a single day cell for the web calendar.
  * Uses standard HTML <div> / <span> with inline styles so the component
@@ -78,7 +78,7 @@ export const DayCell: React.FC<DayCellProps> = ({ day, theme, isSelected, onPres
 
   return (
     <div
-      className="nepali-patro-daycell"
+      className="barshik-nepali-patro-daycell"
       style={containerStyle}
       onClick={() => day.isCurrentMonth && onPress?.(day)}
       role="button"

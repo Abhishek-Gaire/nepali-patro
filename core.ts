@@ -1,11 +1,11 @@
 /**
  * ============================================================================
- * nepali-patro — Core Utilities Entry Point
+ * barshik-nepali-patro — Core Utilities Entry Point
  * ============================================================================
  * Zero-React, zero-UI entry point for consumers who only need date math,
  * conversion, and data lookup.
  *
- *   import { convertADtoBS, NepaliDate, getHolidays } from "nepali-patro/core";
+ *   import { convertADtoBS, NepaliDate, getHolidays } from "barshik-nepali-patro/core";
  *
  * Ideal for:
  *   • Node.js backend services

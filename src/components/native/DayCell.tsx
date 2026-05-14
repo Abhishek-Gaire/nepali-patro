@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * nepali-patro — React Native DayCell Component
+ * barshik-nepali-patro — React Native DayCell Component
  * ============================================================================
  * Renders a single day cell for React Native.
  * Uses View, Text, and TouchableOpacity from react-native.

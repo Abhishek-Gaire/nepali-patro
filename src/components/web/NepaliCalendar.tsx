@@ -1,12 +1,12 @@
 /**
  * ============================================================================
- * nepali-patro — Web NepaliCalendar Component
+ * barshik-nepali-patro — Web NepaliCalendar Component
  * ============================================================================
  * Top-level web component. Wires useNepaliCalendar hook into the
  * web-specific CalendarGrid + Header UI.
  *
  * Consumers import this from the main package entry:
- *   import { NepaliCalendar } from "nepali-patro";
+ *   import { NepaliCalendar } from "barshik-nepali-patro";
  * ============================================================================
  */
 
@@ -48,7 +48,7 @@ export const NepaliCalendar: React.FC<NepaliCalendarProps> = ({
 
   return (
     <div
-      className="nepali-patro-calendar"
+      className="barshik-nepali-patro-calendar"
       style={{
         position: "relative",
         width: "100%",

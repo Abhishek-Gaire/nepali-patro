@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * nepali-patro — Web Header Component
+ * barshik-nepali-patro — Web Header Component
  * ============================================================================
  * Month/year navigation bar for the web calendar.
  * Displays the current BS month name + year with previous/next chevrons.
@@ -28,7 +28,7 @@ export const Header: React.FC<HeaderProps> = ({ year, month, onPrev, onNext, the
 
   return (
     <div
-      className="nepali-patro-header"
+      className="barshik-nepali-patro-header"
       style={{
         display: "flex",
         alignItems: "center",
