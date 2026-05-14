@@ -1,6 +1,6 @@
 {
   "name": "barshik-nepali-patro",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A precise, zero-dependency Bikram Sambat (BS) calendar library for React & React Native with official Nepali month data, holiday support, and graceful fallback for future years.",
   "keywords": [
     "nepali-calendar",
