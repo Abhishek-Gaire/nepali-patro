@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * nepali-patro — React Native Header Component
+ * barshik-nepali-patro — React Native Header Component
  * ============================================================================
  * Month/year navigation bar for React Native.
  * Uses TouchableOpacity for prev/next and Text for labels.

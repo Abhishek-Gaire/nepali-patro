@@ -22,7 +22,7 @@ export default [
     output: {
       file: 'dist/index.js',
       format: 'umd',
-      name: 'NepaliPatro',
+      name: 'BarshikNepaliPatro',
       globals: {
         react: 'React',
       },
@@ -50,7 +50,7 @@ export default [
     output: {
       file: 'dist/native.js',
       format: 'umd',
-      name: 'NepaliPatroNative',
+      name: 'BarshikNepaliPatroNative',
       globals: {
         react: 'React',
         'react-native': 'ReactNative',
@@ -79,7 +79,7 @@ export default [
     output: {
       file: 'dist/core.js',
       format: 'umd',
-      name: 'NepaliPatroCore',
+      name: 'BarshikNepaliPatroCore',
       sourcemap: true,
     },
     external: [],

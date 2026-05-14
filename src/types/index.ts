@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * nepali-patro — Type Definitions
+ * barshik-nepali-patro — Type Definitions
  * ============================================================================
  * Central type definitions for the entire library.
  * All modules consume these types to ensure consistency across

@@ -1,4 +1,4 @@
-# 🇳🇵 nepali-patro
+# 🇳🇵 barshik-nepali-patro
 
 > A precise, zero-dependency **Bikram Sambat (BS)** calendar library for **React** and **React Native**.
 >
@@ -38,11 +38,11 @@
 ## 📦 Installation
 
 ```bash
-npm install nepali-patro
+npm install barshik-nepali-patro
 # or
-yarn add nepali-patro
+yarn add barshik-nepali-patro
 # or
-pnpm add nepali-patro
+pnpm add barshik-nepali-patro
 ```
 
 **Peer dependencies**
@@ -56,7 +56,7 @@ pnpm add nepali-patro
 ### 1. React (Web)
 
 ```tsx
-import { NepaliCalendar } from "nepali-patro";
+import { NepaliCalendar } from "barshik-nepali-patro";
 
 function App() {
   return (
@@ -93,7 +93,7 @@ Holiday cells open a centered details modal in the calendar UI. The modal shows 
 ### 2. React Native
 
 ```tsx
-import { NepaliCalendar } from "nepali-patro/native";
+import { NepaliCalendar } from "barshik-nepali-patro/native";
 
 function CalendarScreen() {
   return (
@@ -118,7 +118,7 @@ function CalendarScreen() {
 }
 ```
 
-> ⚠️ **Never** import `nepali-patro/native` in a web project — it depends on `react-native` primitives and will crash without the RN runtime.
+> ⚠️ **Never** import `barshik-nepali-patro/native` in a web project — it depends on `react-native` primitives and will crash without the RN runtime.
 
 ### 3. Utilities Only (No UI)
 
@@ -131,7 +131,7 @@ import {
   NepaliDate,
   getHolidays,
   generateCalendarGrid,
-} from "nepali-patro/core";
+} from "barshik-nepali-patro/core";
 
 // Convert Gregorian → Bikram Sambat
 const bs = convertADtoBS(new Date(2026, 4, 14));
@@ -194,8 +194,8 @@ All colors accept any valid CSS / React Native color string.
 ```
 ┌─────────────────────────────────────────┐
 │  consumer app                           │
-│  import from 'nepali-patro'             │
-│  or 'nepali-patro/native'               │
+│  import from 'barshik-nepali-patro'             │
+│  or 'barshik-nepali-patro/native'               │
 ├─────────────────────────────────────────┤
 │  web components    │  native components  │
 │  div/span/CSS      │  View/Text/Style     │
@@ -238,8 +238,8 @@ The same modal `NepaliCalendar` opens internally when a user taps a holiday cell
 **React (Web)**
 
 ```tsx
-import { HolidayModal } from "nepali-patro";
-import type { CalendarDay } from "nepali-patro";
+import { HolidayModal } from "barshik-nepali-patro";
+import type { CalendarDay } from "barshik-nepali-patro";
 
 const [selectedDay, setSelectedDay] = useState<CalendarDay | null>(null);
 
@@ -253,8 +253,8 @@ const [selectedDay, setSelectedDay] = useState<CalendarDay | null>(null);
 **React Native**
 
 ```tsx
-import { HolidayModal } from "nepali-patro/native";
-import type { CalendarDay } from "nepali-patro/native";
+import { HolidayModal } from "barshik-nepali-patro/native";
+import type { CalendarDay } from "barshik-nepali-patro/native";
 
 const [selectedDay, setSelectedDay] = useState<CalendarDay | null>(null);
 
@@ -265,7 +265,7 @@ const [selectedDay, setSelectedDay] = useState<CalendarDay | null>(null);
 />
 ```
 
-> The web and native versions share identical props but render with their own platform primitives. Never import `nepali-patro/native` in a web project or vice versa.
+> The web and native versions share identical props but render with their own platform primitives. Never import `barshik-nepali-patro/native` in a web project or vice versa.
 
 **Props** (same for both platforms)
 
@@ -284,8 +284,8 @@ When you have a `NepaliHoliday` from `getHolidays()` and want to open the
 modal from your own list, construct the `CalendarDay` manually:
 
 ```ts
-import { convertBStoAD } from "nepali-patro/core";
-import type { CalendarDay, NepaliHoliday } from "nepali-patro"; // or /native
+import { convertBStoAD } from "barshik-nepali-patro/core";
+import type { CalendarDay, NepaliHoliday } from "barshik-nepali-patro"; // or /native
 
 function holidayToDay(h: NepaliHoliday, year: number, month: number): CalendarDay {
   const adDate = convertBStoAD(year, month, h.day);
@@ -372,7 +372,7 @@ interface CalendarDay {
 For advanced consumers who want to build a custom UI while reusing the shared calendar state.
 
 ```tsx
-import { useNepaliCalendar } from "nepali-patro";
+import { useNepaliCalendar } from "barshik-nepali-patro";
 
 const {
   year,

@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * nepali-patro — BS ↔ AD Converter
+ * barshik-nepali-patro — BS ↔ AD Converter
  * ============================================================================
  * Converts dates between Bikram Sambat (BS) and Gregorian (AD) calendars.
  *

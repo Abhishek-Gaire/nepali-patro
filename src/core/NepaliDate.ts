@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * nepali-patro — NepaliDate Class
+ * barshik-nepali-patro — NepaliDate Class
  * ============================================================================
  * An immutable date-class abstraction for Bikram Sambat dates.
  * Mirrors the ergonomics of native JavaScript Date but operates entirely

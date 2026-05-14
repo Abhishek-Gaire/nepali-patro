@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * nepali-patro — Fallback Data Resolver
+ * barshik-nepali-patro — Fallback Data Resolver
  * ============================================================================
  * Because BS month lengths and holidays are published year-by-year by the
  * Nepal government, consumers may navigate to a year that has not yet been
@@ -46,7 +46,7 @@ export function getMonthDays(year: number): number[] {
     if (typeof process !== "undefined" && process.env?.NODE_ENV !== "production") {
       // eslint-disable-next-line no-console
       console.warn(
-        `[nepali-patro] No month data for BS ${year}. Falling back to BS ${refYear}. ` +
+        `[barshik-nepali-patro] No month data for BS ${year}. Falling back to BS ${refYear}. ` +
           `Add the official month lengths to months.data.ts to remove this warning.`
       );
     }
@@ -79,7 +79,7 @@ export function getHolidays(year: number): NepaliHoliday[] {
     if (typeof process !== "undefined" && process.env?.NODE_ENV !== "production") {
       // eslint-disable-next-line no-console
       console.warn(
-        `[nepali-patro] No holiday data for BS ${year}. Falling back to BS ${refYear}. ` +
+        `[barshik-nepali-patro] No holiday data for BS ${year}. Falling back to BS ${refYear}. ` +
           `Add the official holiday list to holidays.data.ts to remove this warning.`
       );
     }

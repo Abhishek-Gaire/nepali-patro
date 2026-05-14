@@ -1,12 +1,12 @@
 /**
  * ============================================================================
- * nepali-patro — React Native NepaliCalendar Component
+ * barshik-nepali-patro — React Native NepaliCalendar Component
  * ============================================================================
  * Top-level React Native component. Wires useNepaliCalendar into the
  * native-specific UI primitives.
  *
  * Consumers import this from the native subpath:
- *   import { NepaliCalendar } from "nepali-patro/native";
+ *   import { NepaliCalendar } from "barshik-nepali-patro/native";
  * ============================================================================
  */
 

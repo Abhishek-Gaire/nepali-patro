@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * nepali-patro — useNepaliCalendar Hook
+ * barshik-nepali-patro — useNepaliCalendar Hook
  * ============================================================================
  * Platform-agnostic React hook that drives both the web and React Native
  * calendar components. Contains zero platform-specific code (no DOM, no RN
