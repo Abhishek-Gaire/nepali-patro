@@ -62,6 +62,10 @@
       }
     }
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
   "scripts": {
     "build": "rollup -c",
     "typecheck": "tsc --noEmit",
