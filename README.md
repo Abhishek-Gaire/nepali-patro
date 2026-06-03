@@ -218,6 +218,61 @@ Bikram Sambat month lengths are irregular and are published year by year. The li
 
 ---
 
+## 🧪 Testing
+
+The library ships with a comprehensive test suite covering core logic, React hooks, and UI components.
+
+### Running Tests
+
+```bash
+npm test              # Run all tests once
+npm run test:watch    # Run tests in watch mode
+npm run test:coverage # Run tests with coverage report
+```
+
+### Test Structure
+
+All tests live in the `test/` directory, mirroring the `src/` layout:
+
+```
+test/
+├── setup.ts                          # Vitest setup (jest-dom matchers)
+├── vitest.d.ts                       # Type declarations for matchers
+├── core/
+│   ├── converter.test.ts             # BS ↔ AD conversion logic
+│   ├── generator.test.ts             # Calendar grid generation
+│   └── NepaliDate.test.ts            # Date class behavior
+├── data/
+│   └── fallback.test.ts              # Graceful fallback resolver
+├── hooks/
+│   └── useNepaliCalendar.test.ts     # Shared React hook
+├── utils/
+│   └── formatScope.utils.test.ts     # Holiday scope label formatter
+└── components/
+    └── web/                          # Web UI components
+        ├── DayCell.test.tsx
+        ├── Header.test.tsx
+        ├── CalendarGrid.test.tsx
+        ├── HolidayModal.test.tsx
+        └── NepaliCalendar.test.tsx
+```
+
+### Test Coverage
+
+| Module | What's tested |
+|---|---|
+| `converter.ts` | BS↔AD conversion, epoch anchor, roundtrip consistency, boundary conditions, timezone normalization |
+| `NepaliDate.ts` | Constructor validation, factory methods, formatting tokens, date arithmetic, comparisons, immutability |
+| `generator.ts` | 2D grid structure, padding cells, Saturday/holiday flagging, today detection, event merging, year boundary |
+| `fallback.ts` | Exact year match, fallback to latest known year, edge cases at data range boundaries |
+| `formatScope.utils.ts` | All 11 holiday scope labels, null/undefined handling, unknown scope fallback |
+| `useNepaliCalendar` | Initial state, navigation (next/prev/jumpTo), selection management, event handling, grid regeneration |
+| Web components | Rendering, user interactions, accessibility (ARIA), theme application, event callbacks |
+
+The suite runs **273 tests** across **11 test files** with a fast Vitest + jsdom setup.
+
+---
+
 ## 🧩 API Reference
 
 ### `NepaliCalendar` Props
@@ -450,10 +505,11 @@ git clone https://github.com/Abhishek-Gaire/nepali-patro.git
 cd nepali-patro
 npm install
 npm run typecheck
+npm test
 npm run build
 ```
 
-Please include tests for any core logic changes and follow the existing comment style.
+Please include tests for any core logic changes and follow the existing comment style. Test files live in the `test/` directory and follow the same layout as `src/`.
 
 ---
 
