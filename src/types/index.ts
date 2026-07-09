@@ -148,6 +148,15 @@ export interface HeaderProps {
   theme?: CalendarTheme;
 }
 
+/**
+ * Custom day cell render function.
+ * Return `null` or `undefined` to fall back to the default DayCell implementation.
+ */
+export type RenderDayCallback = (
+  day: CalendarDay,
+  defaultProps: { isSelected: boolean; onPress: () => void }
+) => React.ReactNode;
+
 /** Props for the top-level NepaliCalendar component (both platforms) */
 export interface NepaliCalendarProps {
   /** Initial BS year to display. Defaults to current BS year. */
@@ -162,6 +171,11 @@ export interface NepaliCalendarProps {
   onDayPress?: (day: CalendarDay) => void;
   /** Called when the month/year changes via navigation */
   onMonthChange?: (year: BSYear, month: BSMonth) => void;
+  /**
+   * Override the default day cell renderer.
+   * Return `null` or `undefined` to fall back to the default DayCell.
+   */
+  renderDay?: RenderDayCallback;
 }
 
 /** Props for the reusable HolidayModal component (both platforms) */

@@ -25,6 +25,7 @@ export const NepaliCalendar: React.FC<NepaliCalendarProps> = ({
   theme,
   onDayPress,
   onMonthChange,
+  renderDay,
 }) => {
   const {
     year,
@@ -136,30 +137,38 @@ export const NepaliCalendar: React.FC<NepaliCalendarProps> = ({
               }}
             >
               {week.map((day, dayIdx) => {
+                const key = `${day.bsYear}-${day.bsMonth}-${day.bsDay}-${weekIdx}-${dayIdx}`;
                 const isSelected =
                   !!selected &&
                   selected.bsYear === day.bsYear &&
                   selected.bsMonth === day.bsMonth &&
                   selected.bsDay === day.bsDay;
 
+                const handlePress = () => {
+                  const shouldClear =
+                    !!selected &&
+                    selected.bsYear === day.bsYear &&
+                    selected.bsMonth === day.bsMonth &&
+                    selected.bsDay === day.bsDay;
+                  const isHoliday = !!day.holidayName || !!day.holidayScope;
+
+                  setSelected(shouldClear ? null : day);
+                  setActiveHoliday(shouldClear || !isHoliday ? null : day);
+                  onDayPress?.(day);
+                };
+
+                const custom = renderDay?.(day, { isSelected, onPress: handlePress });
+                if (custom != null) {
+                  return <React.Fragment key={key}>{custom}</React.Fragment>;
+                }
+
                 return (
                   <DayCell
-                    key={`${day.bsYear}-${day.bsMonth}-${day.bsDay}-${weekIdx}-${dayIdx}`}
+                    key={key}
                     day={day}
                     theme={theme}
                     isSelected={isSelected}
-                    onPress={(d) => {
-                      const shouldClear =
-                        !!selected &&
-                        selected.bsYear === d.bsYear &&
-                        selected.bsMonth === d.bsMonth &&
-                        selected.bsDay === d.bsDay;
-                      const isHoliday = !!d.holidayName || !!d.holidayScope;
-
-                      setSelected(shouldClear ? null : d);
-                      setActiveHoliday(shouldClear || !isHoliday ? null : d);
-                      onDayPress?.(d);
-                    }}
+                    onPress={handlePress}
                   />
                 );
               })}

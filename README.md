@@ -278,13 +278,64 @@ The suite runs **273 tests** across **11 test files** with a fast Vitest + jsdom
 ### `NepaliCalendar` Props
 
 | Prop | Type | Default | Description |
-|---|---|---|---|
+|---|---|---|---|---|
 | `initialYear` | `number` | Current BS year | Year to open the calendar on |
 | `initialMonth` | `1 \| 2 \| … \| 12` | Current BS month | Month to open the calendar on |
 | `events` | `CalendarEvent[]` | `[]` | Events to overlay |
 | `theme` | `CalendarTheme` | `{}` | Color overrides |
 | `onDayPress` | `(day: CalendarDay) => void` | — | Called when a day is pressed |
 | `onMonthChange` | `(year, month) => void` | — | Called when month/year changes |
+| `renderDay` | `RenderDayCallback` | — | Override day cell rendering |
+
+### `renderDay` — Custom Cell Rendering
+
+Override the default day cell to add badges, icons, background colors, event titles, or any custom UI.
+
+```tsx
+import { NepaliCalendar } from "barshik-nepali-patro";
+import type { RenderDayCallback } from "barshik-nepali-patro";
+
+const renderDay: RenderDayCallback = (day, { isSelected, onPress }) => {
+  // Highlight days with events
+  if (day.events.length > 0) {
+    return (
+      <div
+        onClick={onPress}
+        style={{
+          background: isSelected ? "#2563EB" : "#FEF3C7",
+          cursor: "pointer",
+          padding: 8,
+          borderRadius: 4,
+          textAlign: "center",
+          minHeight: 78,
+        }}
+      >
+        <div>{day.bsDay}</div>
+        {day.events.map((e) => (
+          <div key={e.title} style={{ fontSize: "0.65rem" }}>{e.title}</div>
+        ))}
+      </div>
+    );
+  }
+  // Return null to fall back to the default cell for all other days
+  return null;
+};
+
+<NepaliCalendar renderDay={renderDay} />
+```
+
+The `onPress` callback preserves built-in behavior (selection toggle + holiday modal + `onDayPress`). Return `null` or `undefined` to fall back to the default `DayCell` for that day.
+
+**Type signature:**
+
+```ts
+type RenderDayCallback = (
+  day: CalendarDay,
+  defaultProps: { isSelected: boolean; onPress: () => void }
+) => React.ReactNode;
+```
+
+---
 
 ### `HolidayModal`
 

@@ -27,6 +27,7 @@ export const NepaliCalendar: React.FC<NepaliCalendarProps> = ({
   theme,
   onDayPress,
   onMonthChange,
+  renderDay,
 }) => {
   const {
     year,
@@ -79,31 +80,42 @@ export const NepaliCalendar: React.FC<NepaliCalendarProps> = ({
       <View style={styles.grid}>
         {grid.map((week, wIdx) => (
           <View key={wIdx} style={styles.weekRow}>
-            {week.map((day, dIdx) => (
-              <DayCell
-                key={`${day.bsYear}-${day.bsMonth}-${day.bsDay}-${dIdx}`}
-                day={day}
-                theme={theme}
-                isSelected={
+            {week.map((day, dIdx) => {
+              const key = `${day.bsYear}-${day.bsMonth}-${day.bsDay}-${dIdx}`;
+              const isSelected =
+                !!selected &&
+                selected.bsYear === day.bsYear &&
+                selected.bsMonth === day.bsMonth &&
+                selected.bsDay === day.bsDay;
+
+              const handlePress = () => {
+                const shouldClear =
                   !!selected &&
                   selected.bsYear === day.bsYear &&
                   selected.bsMonth === day.bsMonth &&
-                  selected.bsDay === day.bsDay
-                }
-                onPress={(d) => {
-                  const shouldClear =
-                    !!selected &&
-                    selected.bsYear === d.bsYear &&
-                    selected.bsMonth === d.bsMonth &&
-                    selected.bsDay === d.bsDay;
-                  const isHoliday = !!d.holidayName || !!d.holidayScope;
+                  selected.bsDay === day.bsDay;
+                const isHoliday = !!day.holidayName || !!day.holidayScope;
 
-                  setSelected(shouldClear ? null : d);
-                  setActiveHoliday(shouldClear || !isHoliday ? null : d);
-                  onDayPress?.(d);
-                }}
-              />
-            ))}
+                setSelected(shouldClear ? null : day);
+                setActiveHoliday(shouldClear || !isHoliday ? null : day);
+                onDayPress?.(day);
+              };
+
+              const custom = renderDay?.(day, { isSelected, onPress: handlePress });
+              if (custom != null) {
+                return <React.Fragment key={key}>{custom}</React.Fragment>;
+              }
+
+              return (
+                <DayCell
+                  key={key}
+                  day={day}
+                  theme={theme}
+                  isSelected={isSelected}
+                  onPress={handlePress}
+                />
+              );
+            })}
           </View>
         ))}
       </View>

@@ -135,4 +135,77 @@ describe("NepaliCalendar", () => {
     );
     expect(screen.getAllByRole("button").length).toBeGreaterThan(0);
   });
+
+  it("should render custom content via renderDay", () => {
+    render(
+      <NepaliCalendar
+        initialYear={2080}
+        initialMonth={1 as BSMonth}
+        renderDay={(day) => {
+          if (day.bsDay === 15) {
+            return <div data-testid="custom-cell">CUSTOM_{day.bsDay}</div>;
+          }
+          return null;
+        }}
+      />
+    );
+    expect(screen.getByTestId("custom-cell")).toHaveTextContent("CUSTOM_15");
+  });
+
+  it("should pass isSelected to renderDay", () => {
+    render(
+      <NepaliCalendar
+        initialYear={2080}
+        initialMonth={1 as BSMonth}
+        renderDay={(day, { isSelected, onPress }) => {
+          if (day.bsDay === 15) {
+            return (
+              <div data-testid="selected-cell" onClick={onPress}>
+                {isSelected ? "SELECTED" : "NOT_SELECTED"}
+              </div>
+            );
+          }
+          return null;
+        }}
+      />
+    );
+    const cell = screen.getByTestId("selected-cell");
+    expect(cell).toHaveTextContent("NOT_SELECTED");
+    fireEvent.click(cell);
+    expect(cell).toHaveTextContent("SELECTED");
+  });
+
+  it("should trigger onDayPress via renderDay onPress", () => {
+    const onDayPress = vi.fn();
+    render(
+      <NepaliCalendar
+        initialYear={2080}
+        initialMonth={1 as BSMonth}
+        onDayPress={onDayPress}
+        renderDay={(day, { onPress }) => {
+          if (day.bsDay === 15) {
+            return <div data-testid="press-cell" onClick={onPress}>PRESS</div>;
+          }
+          return null;
+        }}
+      />
+    );
+    fireEvent.click(screen.getByTestId("press-cell"));
+    expect(onDayPress).toHaveBeenCalledTimes(1);
+    expect(onDayPress).toHaveBeenCalledWith(
+      expect.objectContaining({ bsDay: 15, bsMonth: 1, bsYear: 2080 })
+    );
+  });
+
+  it("should fall back to default DayCell when renderDay returns null", () => {
+    render(
+      <NepaliCalendar
+        initialYear={2080}
+        initialMonth={1 as BSMonth}
+        renderDay={() => null}
+      />
+    );
+    const cells = screen.getAllByRole("button");
+    expect(cells.length).toBeGreaterThan(0);
+  });
 });
